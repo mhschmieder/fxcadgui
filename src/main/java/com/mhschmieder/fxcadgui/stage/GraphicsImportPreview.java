@@ -30,9 +30,9 @@
  */
 package com.mhschmieder.fxcadgui.stage;
 
-import com.mhschmieder.fxcadgui.util.CadHelpUtilities;
 import com.mhschmieder.fxcadcontrols.layout.GraphicsImportPreviewPane;
 import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
+import com.mhschmieder.fxcadgui.util.CadHelpUtilities;
 import com.mhschmieder.fxcontrols.stage.NoticeBox;
 import com.mhschmieder.fxcontrols.stage.XStage;
 import com.mhschmieder.fxdxfimport.DxfShapeGroup;

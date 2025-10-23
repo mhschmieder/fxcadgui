@@ -30,8 +30,8 @@
  */
 package com.mhschmieder.fxcadgui.model;
 
-import com.mhschmieder.fxcadgui.util.SurfaceNameManager;
 import com.mhschmieder.fxcadgraphics.SurfaceMaterial;
+import com.mhschmieder.fxcadgui.util.SurfaceNameManager;
 import com.mhschmieder.fxgraphics.beans.BeanFactory;
 import com.mhschmieder.fxphysics.model.Extents2DProperties;
 import com.mhschmieder.jcommons.text.TextUtilities;
