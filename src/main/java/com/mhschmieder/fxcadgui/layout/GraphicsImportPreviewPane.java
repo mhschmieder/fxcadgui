@@ -40,7 +40,7 @@ import com.mhschmieder.fxcontrols.layout.UnitlessPositionPane;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxdxfimport.DxfShapeGroup;
 import com.mhschmieder.fxdxfimport.GraphicsImportOptions;
-import com.mhschmieder.fxphysics.FxPhysicsUtilities;
+import com.mhschmieder.fxphysics.util.FxPhysicsUtilities;
 import com.mhschmieder.fxphysics.control.PhysicsControlFactory;
 import com.mhschmieder.fxphysics.model.Extents2DProperties;
 import com.mhschmieder.jcommons.util.ClientProperties;
