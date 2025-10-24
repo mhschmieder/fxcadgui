@@ -35,7 +35,7 @@ import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
 import com.mhschmieder.fxcontrols.action.SimulationActions;
 import com.mhschmieder.fxcontrols.control.PredictToolBar;
 import com.mhschmieder.fxcontrols.stage.XStage;
-import com.mhschmieder.fxphysics.model.Extents2DProperties;
+import com.mhschmieder.fxphysicscontrols.model.Extents2DProperties;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;

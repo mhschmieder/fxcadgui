@@ -32,8 +32,8 @@ package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
 import com.mhschmieder.fxcontrols.GuiUtilities;
-import com.mhschmieder.fxphysics.layout.Extents2DPane;
-import com.mhschmieder.fxphysics.model.Extents2DProperties;
+import com.mhschmieder.fxphysicscontrols.layout.Extents2DPane;
+import com.mhschmieder.fxphysicscontrols.model.Extents2DProperties;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
 import javafx.geometry.Insets;
