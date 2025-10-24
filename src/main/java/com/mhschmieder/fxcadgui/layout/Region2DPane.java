@@ -1,7 +1,7 @@
-/**
+/*
  * MIT License
  *
- * Copyright (c) 2020, 2023 Mark Schmieder
+ * Copyright (c) 2020, 2025, Mark Schmieder. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the FxCadGui Library
+ * This file is part of the fxcadgui Library
  *
- * You should have received a copy of the MIT License along with the FxCadGui
+ * You should have received a copy of the MIT License along with the fxcadgui
  * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
  * Project: https://github.com/mhschmieder/fxcadgui
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadcontrols.model.Region2DProperties;
+import com.mhschmieder.fxcadgui.model.Region2DProperties;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
-import com.mhschmieder.fxphysicscontrols.layout.Extents2DPane;
+import com.mhschmieder.fxphysicsgui.layout.Extents2DPane;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
 import javafx.geometry.Insets;
@@ -120,12 +120,12 @@ public final class Region2DPane extends VBox {
 
     // Set and bind the Region2D reference.
     // NOTE: This should be done only once, to avoid breaking bindings.
-    public void setRegion2D( final Region2DProperties pRegion2DProperties) {
+    public void setRegion2D( final Region2DProperties pRegion2DProperties ) {
         // Cache the Region2D reference.
         region2DProperties = pRegion2DProperties;
 
         // Forward this reference to the subsidiary panes.
-        _extents2DPane.setExtents(pRegion2DProperties);
+        _extents2DPane.setExtents( pRegion2DProperties) ;
         _surfacesPane.setSurfaceProperties( pRegion2DProperties.getSurfaceProperties() );
     }
 

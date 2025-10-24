@@ -57,37 +57,41 @@
             <groupId>com.mhschmieder</groupId>
             <artifactId>fxgraphics</artifactId>
             <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mhschmieder</groupId>
+            <artifactId>fxgui</artifactId>
+            <version>0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.mhschmieder</groupId>
             <artifactId>fxchart</artifactId>
             <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.mhschmieder</groupId>
             <artifactId>fxlayergraphics</artifactId>
             <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.mhschmieder</groupId>
             <artifactId>fxdxfimport</artifactId>
             <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.mhschmieder</groupId>
             <artifactId>fxcadcontrols</artifactId>
             <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mhschmieder</groupId>
+            <artifactId>fxphysicscontrols</artifactId>
+            <version>0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.mhschmieder</groupId>
             <artifactId>fxphysicsgui</artifactId>
             <version>0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.mhschmieder</groupId>

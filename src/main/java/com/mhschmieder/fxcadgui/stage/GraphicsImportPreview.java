@@ -30,13 +30,13 @@
  */
 package com.mhschmieder.fxcadgui.stage;
 
-import com.mhschmieder.fxcadcontrols.layout.GraphicsImportPreviewPane;
-import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
+import com.mhschmieder.fxcadgui.layout.GraphicsImportPreviewPane;
+import com.mhschmieder.fxcadgui.model.DrawingLimitsProperties;
 import com.mhschmieder.fxcadgui.util.CadHelpUtilities;
-import com.mhschmieder.fxcontrols.stage.NoticeBox;
-import com.mhschmieder.fxcontrols.stage.XStage;
 import com.mhschmieder.fxdxfimport.DxfShapeGroup;
 import com.mhschmieder.fxdxfimport.GraphicsImportOptions;
+import com.mhschmieder.fxgui.stage.NoticeBox;
+import com.mhschmieder.fxgui.stage.XStage;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -56,7 +56,7 @@ import javafx.stage.Modality;
 /**
  * This Preview window is for use with Graphics Import actions, and is designed
  * to give the users a chance to clip the import and specify the Distance Unit.
- * Therefore it is specifically oriented towards the peculiarities of unitless
+ * Therefore, it is specifically oriented towards the peculiarities of unitless
  * DXF files for now, but could be enhanced later to switch its presentation
  * choices based on the file type of the imported graphics.
  */
@@ -69,20 +69,19 @@ public final class GraphicsImportPreview extends XStage {
     public GraphicsImportPreviewPane _graphicsImportPreviewPane;
 
     // Declare the main action button bar.
-    protected ButtonBar              _actionButtonBar;
+    private ButtonBar              _actionButtonBar;
 
     // Declare the main action buttons.
-    protected Button                 _graphicsImportButton;
-    protected Button                 _cancelImportButton;
-    protected Button                 _helpButton;
+    private Button                 _graphicsImportButton;
+    private Button                 _cancelImportButton;
+    private Button                 _helpButton;
 
     // Declare uninitialized pop-ups.
-    protected NoticeBox              _graphicsImportHelp;
+    private NoticeBox _graphicsImportHelp;
 
     // For the sake of post-processing, keep track of user cancellation.
     private boolean                  _canceled;
 
-    @SuppressWarnings("nls")
     public GraphicsImportPreview( final ProductBranding productBranding,
                                   final ClientProperties pClientProperties ) {
         // Always call the superclass constructor first!
@@ -240,9 +239,11 @@ public final class GraphicsImportPreview extends XStage {
         _graphicsImportPreviewPane.resetGraphicsImportPreview();
     }
 
-    public void setApplicationDrawingLimits( final DrawingLimitsProperties applicationDrawingLimitsProperties) {
+    public void setApplicationDrawingLimits(
+            final DrawingLimitsProperties applicationDrawingLimitsProperties) {
         // Forward this method to the Graphics Import Preview Pane.
-        _graphicsImportPreviewPane.setApplicationDrawingLimits(applicationDrawingLimitsProperties);
+        _graphicsImportPreviewPane.setApplicationDrawingLimits(
+                applicationDrawingLimitsProperties );
     }
 
     public void setCanceled( final boolean canceled ) {
@@ -296,7 +297,8 @@ public final class GraphicsImportPreview extends XStage {
      * @param geometryContainer
      *            The container for the imported geometry
      */
-    public void updateGraphicsImportPreview( final DxfShapeGroup geometryContainer ) {
+    public void updateGraphicsImportPreview(
+            final DxfShapeGroup geometryContainer ) {
         // Update the Graphics Import Context, to trigger a preview update.
         setGeometryContainer( geometryContainer );
     }

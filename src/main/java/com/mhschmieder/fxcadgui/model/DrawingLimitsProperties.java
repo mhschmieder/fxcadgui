@@ -31,7 +31,7 @@
 package com.mhschmieder.fxcadgui.model;
 
 import com.mhschmieder.fxgraphics.beans.BeanFactory;
-import com.mhschmieder.fxphysicscontrols.model.Extents2DProperties;
+import com.mhschmieder.fxphysicsgui.model.Extents2DProperties;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

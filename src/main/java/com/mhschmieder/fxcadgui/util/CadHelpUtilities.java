@@ -1,8 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020, 2025, Mark Schmieder
- * All rights reserved.
+ * Copyright (c) 2020, 2025, Mark Schmieder. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +31,7 @@
 package com.mhschmieder.fxcadgui.util;
 
 import com.mhschmieder.fxcadcontrols.util.CadMessageFactory;
-import com.mhschmieder.fxcontrols.stage.NoticeBox;
+import com.mhschmieder.fxgui.stage.NoticeBox;
 import com.mhschmieder.jcommons.util.SystemType;
 
 import java.net.URL;
@@ -43,25 +42,25 @@ import java.net.URL;
  */
 public final class CadHelpUtilities {
 
-    public static NoticeBox getGraphicsImportHelp( final SystemType systemType ) {
+    public static NoticeBox getGraphicsImportHelp(
+            final SystemType systemType ) {
         // Get the URL associated with the JAR-loaded HTML-based Help file.
         final URL graphicsImportHelpUrl = getGraphicsImportHelpAsUrl();
 
         // Make a Notice Box to display the local Help until dismissed.
-        final String graphicsImportHelpBanner = CadMessageFactory.getGraphicsImportHelpBanner();
-        final NoticeBox graphicsImportHelp = new NoticeBox( systemType,
-                                                            graphicsImportHelpBanner,
-                                                            graphicsImportHelpUrl );
+        final String graphicsImportHelpBanner = CadMessageFactory
+                .getGraphicsImportHelpBanner();
 
-        return graphicsImportHelp;
+        return new NoticeBox(
+                systemType,
+                graphicsImportHelpBanner,
+                graphicsImportHelpUrl );
     }
 
     @SuppressWarnings("nls")
     public static URL getGraphicsImportHelpAsUrl() {
         // Get the URL associated with the JAR-loaded HTML-based Help file.
-        final URL graphicsImportHelpUrl = CadHelpUtilities.class.getResource( 
+        return CadHelpUtilities.class.getResource(
                 "/html/GraphicsImportHelp.html" );
-
-        return graphicsImportHelpUrl;
     }
 }

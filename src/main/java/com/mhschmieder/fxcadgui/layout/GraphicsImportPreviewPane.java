@@ -21,28 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the FxCadControls Library.
+ * This file is part of the fxcadgui Library.
  *
- * You should have received a copy of the MIT License along with the
- * FxCadControls Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the fxcadgui
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/fxcadcontrols
+ * Project: https://github.com/mhschmieder/fxcadgui
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
 import com.mhschmieder.fxcadgraphics.DrawingLimits;
+import com.mhschmieder.fxcadgui.model.DrawingLimitsProperties;
 import com.mhschmieder.fxchart.control.ChartLabeledControlFactory;
-import com.mhschmieder.fxcontrols.GuiUtilities;
 import com.mhschmieder.fxcontrols.control.LabeledControlFactory;
 import com.mhschmieder.fxcontrols.control.XComboBox;
-import com.mhschmieder.fxcontrols.layout.UnitlessPositionPane;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxdxfimport.DxfShapeGroup;
 import com.mhschmieder.fxdxfimport.GraphicsImportOptions;
+import com.mhschmieder.fxgui.layout.UnitlessPositionPane;
+import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxphysicscontrols.control.PhysicsControlFactory;
-import com.mhschmieder.fxphysicscontrols.model.Extents2DProperties;
-import com.mhschmieder.fxphysicscontrols.util.FxPhysicsUtilities;
+import com.mhschmieder.fxphysicsgui.model.Extents2DProperties;
+import com.mhschmieder.fxphysicsgui.util.FxPhysicsUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jcommons.util.SystemType;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -103,8 +103,8 @@ public final class GraphicsImportPreviewPane extends GridPane {
 
     public XComboBox< DistanceUnit >              _distanceUnitSelector;
     private GraphicsImportDrawingLimitsSourcePane _drawingLimitsSourcePane;
-    private UnitlessPositionPane                  _minimumPane;
-    private UnitlessPositionPane                  _maximumPane;
+    private UnitlessPositionPane _minimumPane;
+    private UnitlessPositionPane _maximumPane;
 
     /**
      * The Reset Button brings the Drawing Limits back to the selected source.
