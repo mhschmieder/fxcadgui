@@ -35,7 +35,7 @@ import com.mhschmieder.fxcadgui.model.Region2DProperties;
 import com.mhschmieder.fxcadgui.model.SurfaceProperties;
 import com.mhschmieder.fxcadgui.util.SurfaceNameManager;
 import com.mhschmieder.fxcontrols.GuiUtilities;
-import com.mhschmieder.fxcontrols.layout.LayoutFactory;
+import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxgraphics.paint.ColorUtilities;
 import com.mhschmieder.jcommons.text.NumberFormatUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
@@ -261,7 +261,7 @@ public final class SurfacesPane extends BorderPane {
 
     public void setForegroundFromBackground( final Color backColor ) {
         // Set the new Background first, so it sets context for CSS derivations.
-        final Background background = LayoutFactory.makeRegionBackground( backColor );
+        final Background background = RegionUtilities.makeRegionBackground( backColor );
         setBackground( background );
 
         // Forward this method to the lower-level layout containers.

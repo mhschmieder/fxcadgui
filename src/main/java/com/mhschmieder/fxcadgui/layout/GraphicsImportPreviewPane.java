@@ -36,8 +36,8 @@ import com.mhschmieder.fxchart.control.ChartLabeledControlFactory;
 import com.mhschmieder.fxcontrols.GuiUtilities;
 import com.mhschmieder.fxcontrols.control.LabeledControlFactory;
 import com.mhschmieder.fxcontrols.control.XComboBox;
-import com.mhschmieder.fxcontrols.layout.LayoutFactory;
 import com.mhschmieder.fxcontrols.layout.UnitlessPositionPane;
+import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxdxfimport.DxfShapeGroup;
 import com.mhschmieder.fxdxfimport.GraphicsImportOptions;
 import com.mhschmieder.fxphysics.FxPhysicsUtilities;
@@ -673,7 +673,7 @@ public final class GraphicsImportPreviewPane extends GridPane {
         // _backColor = backColor;
 
         // Set the new Background first, so it sets context for CSS derivations.
-        final Background background = LayoutFactory.makeRegionBackground( backColor );
+        final Background background = RegionUtilities.makeRegionBackground( backColor );
         setBackground( background );
     }
 
