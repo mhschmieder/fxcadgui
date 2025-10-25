@@ -30,11 +30,11 @@
  */
 package com.mhschmieder.fxcadgui.stage;
 
-import com.mhschmieder.fxcadcontrols.layout.PolarLinePane;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.PolarLine;
-import com.mhschmieder.fxcontrols.stage.ObjectPropertiesEditor;
+import com.mhschmieder.fxcadgui.layout.PolarLinePane;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
+import com.mhschmieder.fxgui.stage.ObjectPropertiesEditor;
 import com.mhschmieder.fxlayergraphics.model.LayerProperties;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
@@ -46,7 +46,7 @@ import javafx.scene.Node;
 public final class PolarLineEditor extends ObjectPropertiesEditor {
 
     // Declare the main content pane.
-    protected PolarLinePane                          _polarLinePane;
+    protected PolarLinePane _polarLinePane;
 
     // Maintain a reference to the current Polar Line object.
     protected PolarLine                              _polarLineReference;

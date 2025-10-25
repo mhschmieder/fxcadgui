@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcontrols.GuiUtilities;
+import com.mhschmieder.fxcontrols.control.ControlUtilities;
 import com.mhschmieder.fxgraphics.geometry.FacingDirection;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import javafx.geometry.Insets;
@@ -68,11 +68,11 @@ public class FacingDirectionPane extends BorderPane {
 
     private void initPane(final ClientProperties pClientProperties) {
         _facingDirectionToggleGroup = new ToggleGroup();
-        _facingRightRadioButton = GuiUtilities.getRadioButton(
+        _facingRightRadioButton = ControlUtilities.getRadioButton(
                 FacingDirection.RIGHT.label(),
                 _facingDirectionToggleGroup,
                 true );
-        _facingLeftRadioButton = GuiUtilities.getRadioButton(
+        _facingLeftRadioButton = ControlUtilities.getRadioButton(
                 FacingDirection.LEFT.label(),
                 _facingDirectionToggleGroup,
                 false );

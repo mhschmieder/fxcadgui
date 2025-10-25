@@ -33,9 +33,10 @@ package com.mhschmieder.fxcadgui.stage;
 import com.mhschmieder.fxcadcontrols.action.Region2DActions;
 import com.mhschmieder.fxcadcontrols.control.CadMenuFactory;
 import com.mhschmieder.fxcadcontrols.control.Region2DToolBar;
-import com.mhschmieder.fxcadcontrols.layout.Region2DPane;
-import com.mhschmieder.fxcadcontrols.model.Region2DProperties;
-import com.mhschmieder.fxcontrols.stage.XStage;
+import com.mhschmieder.fxcadgraphics.Region2D;
+import com.mhschmieder.fxcadgui.layout.Region2DPane;
+import com.mhschmieder.fxcadgui.model.Region2DProperties;
+import com.mhschmieder.fxgui.stage.XStage;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -64,7 +65,7 @@ public final class Region2DStage extends XStage {
     public Region2DToolBar     _toolBar;
 
     // Declare the main content pane.
-    protected Region2DPane     _region2DPane;
+    protected Region2DPane _region2DPane;
 
     // Cache a reference to the global Region2D.
     protected Region2DProperties region2DProperties;
@@ -152,7 +153,7 @@ public final class Region2DStage extends XStage {
     // Load the relevant actions for this Stage.
     @Override
     protected void loadActions() {
-        // Make all of the actions.
+        // Make all the actions.
         _actions = new Region2DActions( clientProperties, graphicsCategory );
     }
 
@@ -160,8 +161,8 @@ public final class Region2DStage extends XStage {
     protected Node loadContent() {
         // Instantiate and return the custom Content Node.
         _region2DPane = new Region2DPane( clientProperties,
-                                          Region2DProperties.SIZE_METERS_MINIMUM,
-                                          Region2DProperties.SIZE_METERS_MAXIMUM,
+                                          Region2D.SIZE_METERS_MINIMUM,
+                                          Region2D.SIZE_METERS_MAXIMUM,
                                           graphicsCategory );
         return _region2DPane;
     }

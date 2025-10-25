@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the FxCadControls Library
+ * This file is part of the fxcadgui Library
  *
- * You should have received a copy of the MIT License along with the
- * FxCadControls Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the fxcadgui
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/fxcadcontrols
+ * Project: https://github.com/mhschmieder/fxcadgui
  */
 package com.mhschmieder.fxcadgui.model;
 
@@ -40,16 +40,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-// TODO: Switch to wrapping the SurfaceMaterial enum vs. its string label. That
-//  requires changes in multiple libraries but is likely doable.
 public final class SurfaceProperties {
-
-    // Surfaces are bypassed by default as they are only approximate.
-    public static final boolean   BYPASSED_DEFAULT      = true;
-
-    // Declare the Surface Material default name.
-    public static final SurfaceMaterial SURFACE_MATERIAL_DEFAULT
-            = SurfaceMaterial.RIGID;
 
     private final IntegerProperty surfaceNumber;
     private final StringProperty  surfaceName;
@@ -59,11 +50,11 @@ public final class SurfaceProperties {
     public SurfaceProperties( final int pSurfaceNumber,
                               final String pSurfaceName,
                               final boolean pSurfaceBypassed,
-                              final SurfaceMaterial pMaterialName ) {
+                              final SurfaceMaterial pSurfaceMaterial ) {
         surfaceNumber = new SimpleIntegerProperty( pSurfaceNumber );
         surfaceName = new SimpleStringProperty( pSurfaceName );
         surfaceBypassed = new SimpleBooleanProperty( pSurfaceBypassed );
-        surfaceMaterial = new SimpleObjectProperty<>( pMaterialName );
+        surfaceMaterial = new SimpleObjectProperty<>( pSurfaceMaterial );
     }
 
     public IntegerProperty surfaceNumberProperty() {
@@ -78,18 +69,6 @@ public final class SurfaceProperties {
         surfaceNumber.set( pSurfaceNumber );
     }
 
-    public BooleanProperty surfaceBypassedProperty() {
-        return surfaceBypassed;
-    }
-
-    public boolean isSurfaceBypassed() {
-        return surfaceBypassed.get();
-    }
-
-    public void setSurfaceBypassed( final boolean pSurfaceBypassed ) {
-        surfaceBypassed.set( pSurfaceBypassed );
-    }
-
     public StringProperty surfaceNameProperty() {
         return surfaceName;
     }
@@ -102,6 +81,18 @@ public final class SurfaceProperties {
         surfaceName.set( pSurfaceName );
     }
 
+    public BooleanProperty surfaceBypassedProperty() {
+        return surfaceBypassed;
+    }
+
+    public boolean isSurfaceBypassed() {
+        return surfaceBypassed.get();
+    }
+
+    public void setSurfaceBypassed( final boolean pSurfaceBypassed ) {
+        surfaceBypassed.set( pSurfaceBypassed );
+    }
+
     public ObjectProperty< SurfaceMaterial > surfaceMaterialProperty() {
         return surfaceMaterial;
     }
@@ -110,7 +101,7 @@ public final class SurfaceProperties {
         return surfaceMaterial.get();
     }
 
-    public void setSurfaceMaterial( final SurfaceMaterial pMaterialName ) {
-        surfaceMaterial.set( pMaterialName );
+    public void setSurfaceMaterial( final SurfaceMaterial pSurfaceMaterial ) {
+        surfaceMaterial.set( pSurfaceMaterial );
     }
 }

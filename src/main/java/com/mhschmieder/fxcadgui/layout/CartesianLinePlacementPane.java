@@ -31,10 +31,10 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadgraphics.CartesianLine;
-import com.mhschmieder.fxcontrols.GuiUtilities;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
-import com.mhschmieder.fxphysicscontrols.layout.CartesianPositionPane;
-import com.mhschmieder.fxphysicscontrols.layout.PositioningPane;
+import com.mhschmieder.fxgui.util.GuiUtilities;
+import com.mhschmieder.fxphysicsgui.layout.CartesianPositionPane;
+import com.mhschmieder.fxphysicsgui.layout.PositioningPane;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.AngleUnit;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -46,8 +46,8 @@ import javafx.scene.layout.HBox;
 public final class CartesianLinePlacementPane extends HBox {
 
     protected GraphicalObjectPreviewPane _previewPane;
-    public CartesianPositionPane         _startCartesianPositionPane;
-    public PositioningPane               _endPositionPane;
+    public CartesianPositionPane _startCartesianPositionPane;
+    public PositioningPane _endPositionPane;
 
     public CartesianLinePlacementPane( final ClientProperties pClientProperties ) {
         // Always call the superclass constructor first!

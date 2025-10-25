@@ -30,9 +30,9 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.PolarLine;
+import com.mhschmieder.fxcadgui.model.LinearObjectProperties;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxlayergraphics.LayerUtilities;
 import com.mhschmieder.fxlayergraphics.model.LayerProperties;
@@ -217,7 +217,7 @@ public final class PolarLinePane extends VBox {
     }
 
     public void updatePolarLineModel( final PolarLine polarLine ) {
-        // Get all of the Linear Object Properties.
+        // Get all the Linear Object Properties.
         final LinearObjectProperties linearObjectProperties = getLinearObjectProperties();
         polarLine.setLabel( linearObjectProperties.getLabel() );
 

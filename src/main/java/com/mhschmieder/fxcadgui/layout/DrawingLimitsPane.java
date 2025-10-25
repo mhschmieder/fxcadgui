@@ -30,10 +30,10 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
-import com.mhschmieder.fxcontrols.GuiUtilities;
-import com.mhschmieder.fxphysicscontrols.layout.Extents2DPane;
-import com.mhschmieder.fxphysicscontrols.model.Extents2DProperties;
+import com.mhschmieder.fxcadgui.model.DrawingLimitsProperties;
+import com.mhschmieder.fxcontrols.control.ControlUtilities;
+import com.mhschmieder.fxphysicsgui.layout.Extents2DPane;
+import com.mhschmieder.fxphysicsgui.model.Extents2DProperties;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
 import javafx.geometry.Insets;
@@ -97,7 +97,7 @@ public final class DrawingLimitsPane extends GridPane {
                            final double extentsSizeMinimumMeters,
                            final double extentsSizeMaximumMeters,
                            final String propertiesCategory ) {
-        _autoSyncCheckBox = GuiUtilities.getCheckBox( autoSyncLabel, initialAutoSync );
+        _autoSyncCheckBox = ControlUtilities.getCheckBox( autoSyncLabel, initialAutoSync );
 
         _extents2DPane = new Extents2DPane( pClientProperties,
                                         extentsSizeMinimumMeters,

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020, 2025 Mark Schmieder
+ * Copyright (c) 2020, 2025, Mark Schmieder. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the FxCadGui Library
+ * This file is part of the fxcadgui Library
  *
- * You should have received a copy of the MIT License along with the FxCadGui
+ * You should have received a copy of the MIT License along with the fxcadgui
  * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
  * Project: https://github.com/mhschmieder/fxcadgui
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadcontrols.model.Region2DProperties;
-import com.mhschmieder.fxcadcontrols.model.SurfaceProperties;
-import com.mhschmieder.fxcontrols.GuiUtilities;
+import com.mhschmieder.fxcadgui.model.Region2DProperties;
+import com.mhschmieder.fxcadgui.model.SurfaceProperties;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxgraphics.paint.ColorUtilities;
+import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jpdfreport.PdfFonts;
 import com.mhschmieder.jpdfreport.PdfTools;
@@ -141,7 +141,7 @@ public final class SurfacesInformationPane extends VBox {
 
     // Set and propagate the Region2D reference.
     // NOTE: This should be done only once, to avoid breaking bindings.
-    public void setRegion2D( final Region2DProperties region2DProperties) {
+    public void setRegion2D( final Region2DProperties region2DProperties ) {
         // Cache the current Region2D reference, for Surface Materials.
         _region2DProperties = region2DProperties;
 
@@ -162,10 +162,11 @@ public final class SurfacesInformationPane extends VBox {
 
     // Update the cached Surface Materials and Bypassed/Enabled status.
     public void updateLabels() {
-        final ObservableList< SurfaceProperties > numberedSurfaceProperties = _region2DProperties
-                .getSurfaceProperties();
+        final ObservableList< SurfaceProperties > numberedSurfaceProperties
+                = _region2DProperties.getSurfaceProperties();
 
-        final SurfaceProperties surface1Properties = numberedSurfaceProperties.get( 0 );
+        final SurfaceProperties surface1Properties
+                = numberedSurfaceProperties.get( 0 );
         final String sSurface1Status = surface1Properties.isSurfaceBypassed()
             ? "Bypassed" //$NON-NLS-1$
             : surface1Properties.getSurfaceMaterial().abbreviation();

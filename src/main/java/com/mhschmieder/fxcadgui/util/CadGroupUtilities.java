@@ -30,8 +30,8 @@
  */
 package com.mhschmieder.fxcadgui.util;
 
-import com.mhschmieder.fxcontrols.GuiUtilities;
-import com.mhschmieder.fxcontrols.IconContext;
+import com.mhschmieder.fxcontrols.control.ControlUtilities;
+import com.mhschmieder.fxcontrols.util.IconContext;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
@@ -46,8 +46,8 @@ public final class CadGroupUtilities {
         final Group group = new Group();
 
         // First, draw a black diagonal line, using an even dash pattern.
-        final int iconSize = GuiUtilities.getIconSize( iconContext );
-        final int inset = GuiUtilities.getIconInset( iconContext );
+        final int iconSize = ControlUtilities.getIconSize( iconContext );
+        final int inset = ControlUtilities.getIconInset( iconContext );
         final int endPointBoxSideLength = 2;
         final int startX = inset + endPointBoxSideLength;
         final int startY = iconSize - inset - endPointBoxSideLength;
@@ -81,8 +81,8 @@ public final class CadGroupUtilities {
 
         // First, draw a black clockwise circular arc, starting at 3 o'clock
         // (zero degrees) and ending at 12 o'clock (minus 270 degrees).
-        final int iconSize = GuiUtilities.getIconSize( iconContext );
-        final int inset = GuiUtilities.getIconInset( iconContext );
+        final int iconSize = ControlUtilities.getIconSize( iconContext );
+        final int inset = ControlUtilities.getIconInset( iconContext );
         final int strokeWidthOffset = 1;
         final int diameter = iconSize - ( 2 * ( inset + strokeWidthOffset ) );
         final int radius = ( int ) FastMath.floor( 0.5d * diameter );
@@ -123,8 +123,8 @@ public final class CadGroupUtilities {
         final Group group = new Group();
 
         // First, draw a black diagonal line.
-        final int iconSize = GuiUtilities.getIconSize( iconContext );
-        final int inset = GuiUtilities.getIconInset( iconContext );
+        final int iconSize = ControlUtilities.getIconSize( iconContext );
+        final int inset = ControlUtilities.getIconInset( iconContext );
         final int strokeWidthOffset = 1;
         final int startX = iconSize - inset - strokeWidthOffset;
         final int startY = iconSize - inset - strokeWidthOffset;

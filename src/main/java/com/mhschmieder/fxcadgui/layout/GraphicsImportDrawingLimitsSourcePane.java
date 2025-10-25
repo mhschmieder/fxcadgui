@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcontrols.GuiUtilities;
+import com.mhschmieder.fxcontrols.control.ControlUtilities;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.RadioButton;
@@ -63,15 +63,15 @@ public class GraphicsImportDrawingLimitsSourcePane extends BorderPane {
 
     private final void initPane( final String productName ) {
         _drawingLimitsSourceToggleGroup = new ToggleGroup();
-        _computedBoundsRadioButton = GuiUtilities
+        _computedBoundsRadioButton = ControlUtilities
                 .getRadioButton( "Use " + productName + " to Compute Bounding Box", //$NON-NLS-1$ //$NON-NLS-2$
                                  _drawingLimitsSourceToggleGroup,
                                  true );
-        _applicationDrawingLimitsRadioButton = GuiUtilities
+        _applicationDrawingLimitsRadioButton = ControlUtilities
                 .getRadioButton( "Use Current Drawing Limits from " + productName, //$NON-NLS-1$
                                  _drawingLimitsSourceToggleGroup,
                                  false );
-        _graphicsFileRadioButton = GuiUtilities
+        _graphicsFileRadioButton = ControlUtilities
                 .getRadioButton( "Use Drawing Limits from Graphics File", //$NON-NLS-1$
                                  _drawingLimitsSourceToggleGroup,
                                  false );

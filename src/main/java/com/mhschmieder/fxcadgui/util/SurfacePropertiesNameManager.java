@@ -30,7 +30,6 @@
  */
 package com.mhschmieder.fxcadgui.util;
 
-import com.mhschmieder.fxcadgui.model.Region2DProperties;
 import com.mhschmieder.fxcadgui.model.SurfaceProperties;
 import com.mhschmieder.jcommons.text.TextUtilities;
 import javafx.collections.ObservableList;
@@ -40,7 +39,7 @@ import java.text.NumberFormat;
 /**
  * This is a manager class for Surface Names, to guarantee their uniqueness.
  */
-public final class SurfaceNameManager {
+public final class SurfacePropertiesNameManager {
 
     public static String getSurfaceNameDefault( final int surfaceNumber ) {
         return "Surface " + surfaceNumber;
@@ -129,7 +128,7 @@ public final class SurfaceNameManager {
         boolean surfaceNameUnique = true;
 
         for ( int surfaceIndex = 0;
-              surfaceIndex < Region2DProperties.NUMBER_OF_SURFACES;
+              surfaceIndex < surfacePropertiesList.size();
               surfaceIndex++ ) {
             // Skip the Surface if at the reference Surface's index.
             if ( surfaceIndex == surfaceToExcludeIndex ) {

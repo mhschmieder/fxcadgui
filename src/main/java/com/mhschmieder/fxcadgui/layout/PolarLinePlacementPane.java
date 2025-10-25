@@ -31,10 +31,10 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadgraphics.PolarLine;
-import com.mhschmieder.fxcontrols.GuiUtilities;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
-import com.mhschmieder.fxphysicscontrols.layout.CartesianPositionPane;
-import com.mhschmieder.fxphysicscontrols.layout.PolarPositionPane;
+import com.mhschmieder.fxgui.util.GuiUtilities;
+import com.mhschmieder.fxphysicsgui.layout.CartesianPositionPane;
+import com.mhschmieder.fxphysicsgui.layout.PolarPositionPane;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.AngleUnit;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -46,8 +46,8 @@ import javafx.scene.layout.HBox;
 public final class PolarLinePlacementPane extends HBox {
 
     protected GraphicalObjectPreviewPane _previewPane;
-    public CartesianPositionPane         _inclinometerPositionPane;
-    public PolarPositionPane             _startPolarPositionPane;
+    public CartesianPositionPane _inclinometerPositionPane;
+    public PolarPositionPane _startPolarPositionPane;
     public PolarPositionPane             _endPolarPositionPane;
 
     public PolarLinePlacementPane( final ClientProperties pClientProperties ) {

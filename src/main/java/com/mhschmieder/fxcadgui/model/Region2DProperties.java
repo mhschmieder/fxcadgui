@@ -21,19 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the FxCadControls Library
+ * This file is part of the fxcadgui Library
  *
- * You should have received a copy of the MIT License along with the
- * FxCadControls Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the fxcadgui
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/fxcadcontrols
+ * Project: https://github.com/mhschmieder/fxcadgui
  */
 package com.mhschmieder.fxcadgui.model;
 
+import com.mhschmieder.fxcadgraphics.Region2D;
+import com.mhschmieder.fxcadgraphics.Surface;
 import com.mhschmieder.fxcadgraphics.SurfaceMaterial;
-import com.mhschmieder.fxcadgui.util.SurfaceNameManager;
+import com.mhschmieder.fxcadgui.util.SurfacePropertiesNameManager;
 import com.mhschmieder.fxgraphics.beans.BeanFactory;
-import com.mhschmieder.fxphysicscontrols.model.Extents2DProperties;
+import com.mhschmieder.fxphysicsgui.model.Extents2DProperties;
 import com.mhschmieder.jcommons.text.TextUtilities;
 import com.mhschmieder.jpdfreport.PdfFonts;
 import com.mhschmieder.jpdfreport.PdfTools;
@@ -68,27 +70,21 @@ import java.util.List;
  */
 public final class Region2DProperties extends Extents2DProperties {
 
-    // For now, we are limited to four orthogonal surfaces.
-    public static final int                             NUMBER_OF_SURFACES  = 4;
-
-    // Declare minimum and maximum allowed dimensions (same for x and y).
-    public static final double                          SIZE_METERS_MINIMUM = 3.0d;
-    public static final double                          SIZE_METERS_MAXIMUM = 1000d;
-
     /** An observable list of Surface Properties to support Data Binding. */
-    private final ObservableList<SurfaceProperties>   surfacePropertiesList;
+    private final ObservableList<SurfaceProperties> surfacePropertiesList;
 
     // NOTE: These fields have to follow JavaFX Property Beans conventions.
-    // TODO: Split value changed, to material name changed, and status changed?
-    private BooleanBinding                              regionBoundaryChanged;
-    private BooleanBinding                              surfaceNameChanged;
-    private BooleanBinding                              surfaceValueChanged;
+    // TODO: Split value changed to surface material changed and status changed?
+    private BooleanBinding regionBoundaryChanged;
+    private BooleanBinding surfaceNameChanged;
+    private BooleanBinding surfaceValueChanged;
 
     /*
      * Default constructor when nothing is known.
      */
     public Region2DProperties() {
-        this( X_METERS_DEFAULT,
+        this(
+                X_METERS_DEFAULT,
                 Y_METERS_DEFAULT,
                 WIDTH_METERS_DEFAULT,
                 HEIGHT_METERS_DEFAULT );
@@ -97,36 +93,38 @@ public final class Region2DProperties extends Extents2DProperties {
     /*
      * Default constructor when surfaces are disabled.
      */
-    private Region2DProperties(final double pBoundaryX,
-                               final double pBoundaryY,
-                               final double pBoundaryWidth,
-                               final double pBoundaryHeight ) {
-        this( pBoundaryX,
-              pBoundaryY,
-              pBoundaryWidth,
-              pBoundaryHeight,
-              SurfaceNameManager.getSurfaceNameDefault( 1 ),
-              SurfaceProperties.BYPASSED_DEFAULT,
-              SurfaceProperties.SURFACE_MATERIAL_DEFAULT,
-              SurfaceNameManager.getSurfaceNameDefault( 2 ),
-              SurfaceProperties.BYPASSED_DEFAULT,
-              SurfaceProperties.SURFACE_MATERIAL_DEFAULT,
-              SurfaceNameManager.getSurfaceNameDefault( 3 ),
-              SurfaceProperties.BYPASSED_DEFAULT,
-              SurfaceProperties.SURFACE_MATERIAL_DEFAULT,
-              SurfaceNameManager.getSurfaceNameDefault( 4 ),
-              SurfaceProperties.BYPASSED_DEFAULT,
-              SurfaceProperties.SURFACE_MATERIAL_DEFAULT);
+    private Region2DProperties( final double pBoundaryX,
+                                final double pBoundaryY,
+                                final double pBoundaryWidth,
+                                final double pBoundaryHeight ) {
+        this(
+                pBoundaryX,
+                pBoundaryY,
+                pBoundaryWidth,
+                pBoundaryHeight,
+                SurfacePropertiesNameManager.getSurfaceNameDefault( 1 ),
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT,
+                SurfacePropertiesNameManager.getSurfaceNameDefault( 2 ),
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT,
+                SurfacePropertiesNameManager.getSurfaceNameDefault( 3 ),
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT,
+                SurfacePropertiesNameManager.getSurfaceNameDefault( 4 ),
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT );
     }
 
     /*
      * Default constructor when surfaces are selectively enabled.
      */
-    public Region2DProperties(final double pBoundaryX,
-                              final double pBoundaryY,
-                              final double pBoundaryWidth,
-                              final double pBoundaryHeight,
-                              final ObservableList< SurfaceProperties > pSurfaceProperties ) {
+    public Region2DProperties(
+            final double pBoundaryX,
+            final double pBoundaryY,
+            final double pBoundaryWidth,
+            final double pBoundaryHeight,
+            final ObservableList< SurfaceProperties > pSurfaceProperties ) {
         this( pBoundaryX,
               pBoundaryY,
               pBoundaryWidth,
@@ -148,22 +146,22 @@ public final class Region2DProperties extends Extents2DProperties {
     /*
      * Default constructor when surfaces are selectively enabled.
      */
-    public Region2DProperties(final double pBoundaryX,
-                              final double pBoundaryY,
-                              final double pBoundaryWidth,
-                              final double pBoundaryHeight,
-                              final String pSurface1Name,
-                              final boolean pSurface1Bypassed,
-                              final SurfaceMaterial pSurface1Material,
-                              final String pSurface2Name,
-                              final boolean pSurface2Bypassed,
-                              final SurfaceMaterial pSurface2Material,
-                              final String pSurface3Name,
-                              final boolean pSurface3Bypassed,
-                              final SurfaceMaterial pSurface3Material,
-                              final String pSurface4Name,
-                              final boolean pSurface4Bypassed,
-                              final SurfaceMaterial pSurface4Material ) {
+    public Region2DProperties( final double pBoundaryX,
+                               final double pBoundaryY,
+                               final double pBoundaryWidth,
+                               final double pBoundaryHeight,
+                               final String pSurface1Name,
+                               final boolean pSurface1Bypassed,
+                               final SurfaceMaterial pSurface1Material,
+                               final String pSurface2Name,
+                               final boolean pSurface2Bypassed,
+                               final SurfaceMaterial pSurface2Material,
+                               final String pSurface3Name,
+                               final boolean pSurface3Bypassed,
+                               final SurfaceMaterial pSurface3Material,
+                               final String pSurface4Name,
+                               final boolean pSurface4Bypassed,
+                               final SurfaceMaterial pSurface4Material ) {
         // Always call the super-constructor first!
         super( pBoundaryX, pBoundaryY, pBoundaryWidth, pBoundaryHeight );
 
@@ -206,8 +204,9 @@ public final class Region2DProperties extends Extents2DProperties {
     /*
      * Default constructor when surfaces are selectively enabled.
      */
-    public Region2DProperties(final Rectangle pBoundary,
-                              final ObservableList< SurfaceProperties > pSurfaceProperties ) {
+    public Region2DProperties(
+            final Rectangle pBoundary,
+            final ObservableList< SurfaceProperties > pSurfaceProperties ) {
         this( pBoundary.getX(),
               pBoundary.getY(),
               pBoundary.getWidth(),
@@ -218,7 +217,7 @@ public final class Region2DProperties extends Extents2DProperties {
     /*
      * Copy constructor.
      */
-    public Region2DProperties(final Region2DProperties pRegion2DProperties) {
+    public Region2DProperties( final Region2DProperties pRegion2DProperties ) {
         this( pRegion2DProperties.getX(),
               pRegion2DProperties.getY(),
               pRegion2DProperties.getWidth(),
@@ -241,23 +240,28 @@ public final class Region2DProperties extends Extents2DProperties {
         //  as opposed to when the settings on an element change, so we must bind 
         //  instead against all the mutable properties of the individual elements
         //  in the collection. This works because we have a known fixed list size.
-        final SurfaceProperties surface1Properties = surfacePropertiesList.get( 0 );
-        final SurfaceProperties surface2Properties = surfacePropertiesList.get( 1 );
-        final SurfaceProperties surface3Properties = surfacePropertiesList.get( 2 );
-        final SurfaceProperties surface4Properties = surfacePropertiesList.get( 3 );
+        final SurfaceProperties surface1Properties
+                = surfacePropertiesList.get( 0 );
+        final SurfaceProperties surface2Properties
+                = surfacePropertiesList.get( 1 );
+        final SurfaceProperties surface3Properties
+                = surfacePropertiesList.get( 2 );
+        final SurfaceProperties surface4Properties
+                = surfacePropertiesList.get( 3 );
         surfaceNameChanged = BeanFactory.makeBooleanBinding(
             surface1Properties.surfaceNameProperty(),
             surface2Properties.surfaceNameProperty(),
             surface3Properties.surfaceNameProperty(),
             surface4Properties.surfaceNameProperty() );
 
-        // Establish the Surface Value Changed dirty flag criteria as any surface
-        // value change.
-        // NOTE: Collections only flag a change if elements are added or removed,
-        //  as opposed to when the settings on an element change, so we must bind 
-        //  instead against all the mutable properties of the individual elements
-        //  in the collection. This works because we have a known fixed list size.
-        // TODO: Consider avoiding duplication by referencing surfaceNameChanged,
+        // Establish the Surface Value Changed dirty flag criteria as any
+        // surface value change.
+        // NOTE: Collections only flag a change if elements are added or
+        //  removed, as opposed to when the settings on an element change, so we
+        //  must bind instead against all the mutable properties of the
+        //  individual elements in the collection. This works because we have a
+        //  known fixed list size.
+        // TODO: Consider avoiding duplication by referencing surfaceNameChanged
         //  as long as that doesn't cause issues with invalidate status on get().
         surfaceValueChanged = BeanFactory.makeBooleanBinding(
             surface1Properties.surfaceBypassedProperty(),
@@ -411,9 +415,10 @@ public final class Region2DProperties extends Extents2DProperties {
                                                           false );
 
         // Write the Region Surfaces Table.
-        final ObservableList< SurfaceProperties > numberedSurfaceProperties =
-                                                                            getSurfaceProperties();
-        for ( final SurfaceProperties surfacePropertiesReference : numberedSurfaceProperties ) {
+        final ObservableList< SurfaceProperties > numberedSurfaceProperties
+                = getSurfaceProperties();
+        for ( final SurfaceProperties surfacePropertiesReference
+                : numberedSurfaceProperties ) {
             final List< Cell > surfacesRowData = new ArrayList<>();
 
             final String status = surfacePropertiesReference.isSurfaceBypassed()
@@ -462,27 +467,28 @@ public final class Region2DProperties extends Extents2DProperties {
                      WIDTH_METERS_DEFAULT,
                      HEIGHT_METERS_DEFAULT,
                      surfacePropertiesList.get( 0 ).getSurfaceName(),
-                     SurfaceProperties.BYPASSED_DEFAULT,
-                     SurfaceProperties.SURFACE_MATERIAL_DEFAULT,
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT,
                      surfacePropertiesList.get( 1 ).getSurfaceName(),
-                     SurfaceProperties.BYPASSED_DEFAULT,
-                     SurfaceProperties.SURFACE_MATERIAL_DEFAULT,
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT,
                      surfacePropertiesList.get( 2 ).getSurfaceName(),
-                     SurfaceProperties.BYPASSED_DEFAULT,
-                     SurfaceProperties.SURFACE_MATERIAL_DEFAULT,
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT,
                      surfacePropertiesList.get( 3 ).getSurfaceName(),
-                     SurfaceProperties.BYPASSED_DEFAULT,
-                     SurfaceProperties.SURFACE_MATERIAL_DEFAULT);
+                Surface.SURFACE_BYPASSED_DEFAULT,
+                Surface.SURFACE_MATERIAL_DEFAULT);
     }
 
     /*
      * Pseudo-constructor. Private, so does not notify listeners.
      */
-    public void setRegion2D( final double pBoundaryX,
-                             final double pBoundaryY,
-                             final double pBoundaryWidth,
-                             final double pBoundaryHeight,
-                             final ObservableList< SurfaceProperties > pSurfaceProperties ) {
+    public void setRegion2D(
+            final double pBoundaryX,
+            final double pBoundaryY,
+            final double pBoundaryWidth,
+            final double pBoundaryHeight,
+            final ObservableList< SurfaceProperties > pSurfaceProperties ) {
         setExtents( pBoundaryX, pBoundaryY, pBoundaryWidth, pBoundaryHeight );
 
         setSurfaceProperties( pSurfaceProperties );
@@ -526,8 +532,9 @@ public final class Region2DProperties extends Extents2DProperties {
     /*
      * Pseudo-constructor. Private, so does not notify listeners.
      */
-    public void setRegion2D( final Rectangle pBoundary,
-                             final ObservableList< SurfaceProperties > pSurfaceProperties ) {
+    public void setRegion2D(
+            final Rectangle pBoundary,
+            final ObservableList< SurfaceProperties > pSurfaceProperties ) {
         setRegion2D( pBoundary.getX(),
                      pBoundary.getY(),
                      pBoundary.getWidth(),
@@ -538,7 +545,7 @@ public final class Region2DProperties extends Extents2DProperties {
     /*
      * Copy pseudo-constructor.
      */
-    public void setRegion2D( final Region2DProperties pRegion2DProperties) {
+    public void setRegion2D( final Region2DProperties pRegion2DProperties ) {
         setRegion2D( pRegion2DProperties.getX(),
                      pRegion2DProperties.getY(),
                      pRegion2DProperties.getWidth(),
@@ -561,7 +568,7 @@ public final class Region2DProperties extends Extents2DProperties {
     private void setSurfaceProperties(
             final ObservableList< SurfaceProperties > pSurfacePropertiesList ) {
         for ( int surfaceIndex = 0;
-              surfaceIndex < NUMBER_OF_SURFACES;
+              surfaceIndex < Region2D.NUMBER_OF_SURFACES;
               surfaceIndex++ ) {
             final SurfaceProperties surfaceProperties = pSurfacePropertiesList
                     .get( surfaceIndex );

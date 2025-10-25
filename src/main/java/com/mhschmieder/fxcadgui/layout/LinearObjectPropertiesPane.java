@@ -31,11 +31,11 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadcontrols.control.LinearObjectPropertiesControls;
-import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.GraphicalObject;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.LinearObject;
-import com.mhschmieder.fxcontrols.GuiUtilities;
+import com.mhschmieder.fxcadgui.model.LinearObjectProperties;
+import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxlayergraphics.LayerUtilities;
 import com.mhschmieder.fxlayergraphics.model.LayerProperties;
 import com.mhschmieder.jcommons.util.ClientProperties;
@@ -84,7 +84,7 @@ public class LinearObjectPropertiesPane extends BorderPane {
     public LinearObjectPropertiesControls _linearObjectPropertiesControls;
 
     // Cache the Linear Object Properties, for data binding.
-    protected LinearObjectProperties      _linearObjectProperties;
+    protected LinearObjectProperties _linearObjectProperties;
 
     public LinearObjectPropertiesPane( final ClientProperties pClientProperties,
                                        final String linearObjectLabelDefault,

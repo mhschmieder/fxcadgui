@@ -30,11 +30,11 @@
  */
 package com.mhschmieder.fxcadgui.stage;
 
-import com.mhschmieder.fxcadcontrols.layout.CartesianLinePane;
 import com.mhschmieder.fxcadgraphics.CartesianLine;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
-import com.mhschmieder.fxcontrols.stage.ObjectPropertiesEditor;
+import com.mhschmieder.fxcadgui.layout.CartesianLinePane;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
+import com.mhschmieder.fxgui.stage.ObjectPropertiesEditor;
 import com.mhschmieder.fxlayergraphics.model.LayerProperties;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
@@ -46,7 +46,7 @@ import javafx.scene.Node;
 public final class CartesianLineEditor extends ObjectPropertiesEditor {
 
     // Declare the main content pane.
-    protected CartesianLinePane                          _cartesianLinePane;
+    protected CartesianLinePane _cartesianLinePane;
 
     // Maintain a reference to the current Cartesian Line object.
     protected CartesianLine                              _cartesianLineReference;
