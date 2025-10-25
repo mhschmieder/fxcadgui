@@ -32,7 +32,6 @@ package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadgui.model.Region2DProperties;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
-import com.mhschmieder.fxphysicsgui.layout.Extents2DPane;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
 import javafx.geometry.Insets;

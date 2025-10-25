@@ -32,6 +32,8 @@ package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadgraphics.DrawingLimits;
 import com.mhschmieder.fxcadgui.model.DrawingLimitsProperties;
+import com.mhschmieder.fxcadgui.model.Extents2DProperties;
+import com.mhschmieder.fxcadgui.util.BoundsUtilities;
 import com.mhschmieder.fxchart.control.ChartLabeledControlFactory;
 import com.mhschmieder.fxcontrols.control.LabeledControlFactory;
 import com.mhschmieder.fxcontrols.control.XComboBox;
@@ -41,8 +43,6 @@ import com.mhschmieder.fxdxfimport.GraphicsImportOptions;
 import com.mhschmieder.fxgui.layout.UnitlessPositionPane;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxphysicscontrols.control.PhysicsControlFactory;
-import com.mhschmieder.fxphysicsgui.model.Extents2DProperties;
-import com.mhschmieder.fxphysicsgui.util.FxPhysicsUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jcommons.util.SystemType;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -138,10 +138,10 @@ public final class GraphicsImportPreviewPane extends GridPane {
      */
     private Group                                 _geometryGroup;
 
-    /** The x axis displays ticks along the bottom of the Sound Field. */
+    /** The x-axis displays ticks along the bottom of the Sound Field. */
     protected NumberAxis                          _xAxis;
 
-    /** The y axis displays ticks along the left of the Sound Field. */
+    /** The y-axis displays ticks along the left of the Sound Field. */
     protected NumberAxis                          _yAxis;
 
     /**
@@ -291,7 +291,8 @@ public final class GraphicsImportPreviewPane extends GridPane {
      * @param importedGeometryPreviewNode
      *            Imported geometry preview node
      */
-    private void addImportedGeometryPreviewNode( final Node importedGeometryPreviewNode ) {
+    private void addImportedGeometryPreviewNode(
+            final Node importedGeometryPreviewNode ) {
         add( importedGeometryPreviewNode, 0, 1, 3, 1 );
     }
 
@@ -570,12 +571,15 @@ public final class GraphicsImportPreviewPane extends GridPane {
         }
         else if ( _drawingLimitsSourcePane._applicationDrawingLimitsRadioButton
                 .equals( drawingLimitsSource ) ) {
-            final Extents2DProperties applicationBounds = FxPhysicsUtilities
+            final Extents2DProperties applicationBounds = BoundsUtilities
                     .getExtentsInDistanceUnit(
                             _applicationDrawingLimitsProperties,
                             _distanceUnitSelector.getValue() );
-            final DrawingLimits prospectiveDrawingLimits
-                    = new DrawingLimits( applicationBounds );
+            final DrawingLimits prospectiveDrawingLimits = new DrawingLimits(
+                    applicationBounds.getX(),
+                    applicationBounds.getY(),
+                    applicationBounds.getWidth(),
+                    applicationBounds.getHeight() );
             setProspectiveDrawingLimits( prospectiveDrawingLimits );
         }
     }
@@ -634,7 +638,8 @@ public final class GraphicsImportPreviewPane extends GridPane {
         }
     }
 
-    public void setApplicationDrawingLimits( final DrawingLimitsProperties applicationDrawingLimitsProperties) {
+    public void setApplicationDrawingLimits(
+            final DrawingLimitsProperties applicationDrawingLimitsProperties ) {
         _applicationDrawingLimitsProperties = applicationDrawingLimitsProperties;
     }
 
@@ -657,12 +662,15 @@ public final class GraphicsImportPreviewPane extends GridPane {
         // the Distance Unit changes while Application Drawing Limits are chosen
         // as the source.
         if ( _drawingLimitsSourcePane._applicationDrawingLimitsRadioButton.isSelected() ) {
-            final Extents2DProperties applicationBounds = FxPhysicsUtilities
+            final Extents2DProperties applicationBounds = BoundsUtilities
                     .getExtentsInDistanceUnit(
                             _applicationDrawingLimitsProperties,
                             distanceUnit );
-            final DrawingLimits prospectiveDrawingLimits
-                    = new DrawingLimits( applicationBounds );
+            final DrawingLimits prospectiveDrawingLimits = new DrawingLimits(
+                    applicationBounds.getX(),
+                    applicationBounds.getY(),
+                    applicationBounds.getWidth(),
+                    applicationBounds.getHeight() );
             setProspectiveDrawingLimits( prospectiveDrawingLimits );
         }
     }
@@ -861,7 +869,7 @@ public final class GraphicsImportPreviewPane extends GridPane {
         _importedGeometryPreviewStackPane = new StackPane( _importedGeometryPreviewAnchorPane );
         addImportedGeometryPreviewNode( _importedGeometryPreviewStackPane );
 
-        // Register all of the mouse event handlers (e.g. pop-up menu and data
+        // Register all the mouse event handlers (e.g. pop-up menu and data
         // tracker triggers and updaters, along with mouse drag handling etc.).
         // addMouseEventHandlers();
 

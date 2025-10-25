@@ -35,7 +35,6 @@ import com.mhschmieder.fxcadgraphics.Surface;
 import com.mhschmieder.fxcadgraphics.SurfaceMaterial;
 import com.mhschmieder.fxcadgui.util.SurfacePropertiesNameManager;
 import com.mhschmieder.fxgraphics.beans.BeanFactory;
-import com.mhschmieder.fxphysicsgui.model.Extents2DProperties;
 import com.mhschmieder.jcommons.text.TextUtilities;
 import com.mhschmieder.jpdfreport.PdfFonts;
 import com.mhschmieder.jpdfreport.PdfTools;
