@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui;
 
-import com.mhschmieder.fxcadgui.model.Extents2DProperties;
+import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
 import com.mhschmieder.fxcadgui.util.BoundsUtilities;
 import com.mhschmieder.fxchart.ChartContentGroup;
 import com.mhschmieder.fxgraphics.image.ImageUtilities;

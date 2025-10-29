@@ -30,9 +30,9 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
+import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.CartesianLine;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
-import com.mhschmieder.fxcadgui.model.LinearObjectProperties;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxlayergraphics.LayerUtilities;
 import com.mhschmieder.fxlayergraphics.model.LayerProperties;

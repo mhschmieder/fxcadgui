@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadgui.model.Extents2DProperties;
+import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxgraphics.paint.ColorUtilities;
 import com.mhschmieder.fxgui.util.GuiUtilities;

@@ -30,8 +30,8 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadgui.model.DrawingLimitsProperties;
-import com.mhschmieder.fxcadgui.model.Extents2DProperties;
+import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
+import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
 import com.mhschmieder.fxcontrols.control.ControlUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;

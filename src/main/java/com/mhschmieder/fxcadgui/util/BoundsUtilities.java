@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.util;
 
-import com.mhschmieder.fxcadgui.model.Extents2DProperties;
+import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
 import com.mhschmieder.jphysics.DistanceUnit;
 import com.mhschmieder.jphysics.UnitConversion;
 import javafx.geometry.BoundingBox;

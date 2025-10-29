@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadgui.model.Region2DProperties;
+import com.mhschmieder.fxcadcontrols.model.Region2DProperties;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.DistanceUnit;

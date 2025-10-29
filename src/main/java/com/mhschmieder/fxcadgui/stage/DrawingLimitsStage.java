@@ -30,9 +30,9 @@
  */
 package com.mhschmieder.fxcadgui.stage;
 
+import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
+import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
 import com.mhschmieder.fxcadgui.layout.DrawingLimitsPane;
-import com.mhschmieder.fxcadgui.model.DrawingLimitsProperties;
-import com.mhschmieder.fxcadgui.model.Extents2DProperties;
 import com.mhschmieder.fxcontrols.action.SimulationActions;
 import com.mhschmieder.fxcontrols.control.PredictToolBar;
 import com.mhschmieder.fxgui.stage.XStage;

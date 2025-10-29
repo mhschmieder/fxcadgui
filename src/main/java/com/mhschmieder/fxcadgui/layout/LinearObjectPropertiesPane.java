@@ -31,10 +31,10 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadcontrols.control.LinearObjectPropertiesControls;
+import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.GraphicalObject;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.LinearObject;
-import com.mhschmieder.fxcadgui.model.LinearObjectProperties;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxlayergraphics.LayerUtilities;
 import com.mhschmieder.fxlayergraphics.model.LayerProperties;

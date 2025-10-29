@@ -31,10 +31,10 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadcontrols.control.SurfaceSelectorControls;
+import com.mhschmieder.fxcadcontrols.model.SurfaceProperties;
+import com.mhschmieder.fxcadcontrols.util.SurfacePropertiesNameManager;
 import com.mhschmieder.fxcadgraphics.Region2D;
 import com.mhschmieder.fxcadgraphics.Surface;
-import com.mhschmieder.fxcadgui.model.SurfaceProperties;
-import com.mhschmieder.fxcadgui.util.SurfacePropertiesNameManager;
 import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxgraphics.paint.ColorUtilities;
 import com.mhschmieder.fxgui.util.GuiUtilities;
