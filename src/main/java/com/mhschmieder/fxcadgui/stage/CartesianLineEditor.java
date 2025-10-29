@@ -1,7 +1,7 @@
-/**
+/*
  * MIT License
  *
- * Copyright (c) 2020, 2023 Mark Schmieder
+ * Copyright (c) 2020, 2025, Mark Schmieder. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,7 +35,7 @@ import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgui.layout.CartesianLinePane;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxgui.stage.ObjectPropertiesEditor;
-import com.mhschmieder.fxlayergraphics.model.LayerProperties;
+import com.mhschmieder.fxlayergraphics.Layer;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.AngleUnit;
@@ -109,7 +109,7 @@ public final class CartesianLineEditor extends ObjectPropertiesEditor {
 
         // Make sure the Layer Names are up-to-date, and that we avoid any side
         // effects against the selected Layer for the new Cartesian Line Reference.
-        final LayerProperties currentLayer = cartesianLine.getLayer();
+        final Layer currentLayer = cartesianLine.getLayer();
         updateLayerNames( currentLayer );
 
         // Ensure that an object already being edited doesn't reset and re-sync
@@ -200,13 +200,13 @@ public final class CartesianLineEditor extends ObjectPropertiesEditor {
         _cartesianLinePane.setGesturesEnabled( gesturesEnabled );
     }
 
-    public void setLayerCollection( final ObservableList< LayerProperties > layerCollection ) {
+    public void setLayerCollection( final ObservableList< Layer > layerCollection ) {
         // Forward this method to the Cartesian Line Pane.
         _cartesianLinePane.setLayerCollection( layerCollection );
     }
 
     /**
-     * Set the new Scrolling Sensitivity for all of the sliders.
+     * Set the new Scrolling Sensitivity for all the sliders.
      *
      * @param scrollingSensitivity
      *            The sensitivity of the mouse scroll wheel
@@ -271,7 +271,7 @@ public final class CartesianLineEditor extends ObjectPropertiesEditor {
                                              preserveSelectedLayerByName );
     }
 
-    public void updateLayerNames( final LayerProperties currentLayer ) {
+    public void updateLayerNames( final Layer currentLayer ) {
         // Forward this method to the Cartesian Line Pane.
         _cartesianLinePane.updateLayerNames( currentLayer );
     }

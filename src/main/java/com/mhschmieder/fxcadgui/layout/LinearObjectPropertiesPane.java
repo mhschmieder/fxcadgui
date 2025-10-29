@@ -36,10 +36,9 @@ import com.mhschmieder.fxcadgraphics.GraphicalObject;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.LinearObject;
 import com.mhschmieder.fxgui.util.GuiUtilities;
-import com.mhschmieder.fxlayergraphics.LayerUtilities;
-import com.mhschmieder.fxlayergraphics.model.LayerProperties;
+import com.mhschmieder.fxlayergraphics.Layer;
+import com.mhschmieder.fxlayergraphics.LayerPropertiesManager;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -47,6 +46,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+
+import java.util.List;
 
 public class LinearObjectPropertiesPane extends BorderPane {
 
@@ -108,10 +109,11 @@ public class LinearObjectPropertiesPane extends BorderPane {
 
         // Make default Linear Object Properties to give a valid reference for
         // later updates.
-        _linearObjectProperties = new LinearObjectProperties( linearObjectLabelDefault,
-                                                              LayerUtilities.DEFAULT_LAYER_NAME,
-                                                              LinearObject.USE_AS_PROJECTOR_DEFAULT,
-                                                              LinearObject.NUMBER_OF_PROJECTION_ZONES_DEFAULT );
+        _linearObjectProperties = new LinearObjectProperties(
+                linearObjectLabelDefault,
+                LayerPropertiesManager.DEFAULT_LAYER_NAME,
+                LinearObject.USE_AS_PROJECTOR_DEFAULT,
+                LinearObject.NUMBER_OF_PROJECTION_ZONES_DEFAULT );
 
         try {
             initPane( pClientProperties, 
@@ -232,7 +234,7 @@ public class LinearObjectPropertiesPane extends BorderPane {
         return _linearObjectPropertiesControls.isLinearObjectLabelUnique( linearObjectLabelCandidate );
     }
 
-    public final void setLayerCollection( final ObservableList< LayerProperties > layerCollection ) {
+    public final void setLayerCollection( final List<Layer> layerCollection ) {
         // Forward this method to the Linear Object Properties Group.
         _linearObjectPropertiesControls.setLayerCollection( layerCollection );
     }

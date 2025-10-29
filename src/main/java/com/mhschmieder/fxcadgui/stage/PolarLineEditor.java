@@ -1,7 +1,7 @@
-/**
+/*
  * MIT License
  *
- * Copyright (c) 2020, 2023 Mark Schmieder
+ * Copyright (c) 2020, 2025, Mark Schmieder. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,13 +35,14 @@ import com.mhschmieder.fxcadgraphics.PolarLine;
 import com.mhschmieder.fxcadgui.layout.PolarLinePane;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxgui.stage.ObjectPropertiesEditor;
-import com.mhschmieder.fxlayergraphics.model.LayerProperties;
+import com.mhschmieder.fxlayergraphics.Layer;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.AngleUnit;
 import com.mhschmieder.jphysics.DistanceUnit;
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
+
+import java.util.List;
 
 public final class PolarLineEditor extends ObjectPropertiesEditor {
 
@@ -109,7 +110,7 @@ public final class PolarLineEditor extends ObjectPropertiesEditor {
 
         // Make sure the Layer Names are up-to-date, and that we avoid any side
         // effects against the selected Layer for the new Polar Line Reference.
-        final LayerProperties currentLayer = polarLine.getLayer();
+        final Layer currentLayer = polarLine.getLayer();
         updateLayerNames( currentLayer );
 
         // Ensure that an object already being edited doesn't reset and re-sync
@@ -194,7 +195,7 @@ public final class PolarLineEditor extends ObjectPropertiesEditor {
         _polarLinePane.setGesturesEnabled( gesturesEnabled );
     }
 
-    public void setLayerCollection( final ObservableList< LayerProperties > layerCollection ) {
+    public void setLayerCollection( final List< Layer > layerCollection ) {
         // Forward this method to the Polar Line Pane.
         _polarLinePane.setLayerCollection( layerCollection );
     }
@@ -269,7 +270,7 @@ public final class PolarLineEditor extends ObjectPropertiesEditor {
                                                    preserveSelectedLayerByName );
     }
 
-    public void updateLayerNames( final LayerProperties currentLayer ) {
+    public void updateLayerNames( final Layer currentLayer ) {
         // Forward this method to the Polar Line Pane.
         _polarLinePane.updateLayerNames( currentLayer );
     }

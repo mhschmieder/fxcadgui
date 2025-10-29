@@ -34,8 +34,8 @@ import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.CartesianLine;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
-import com.mhschmieder.fxlayergraphics.LayerUtilities;
-import com.mhschmieder.fxlayergraphics.model.LayerProperties;
+import com.mhschmieder.fxlayergraphics.Layer;
+import com.mhschmieder.fxlayergraphics.LayerManager;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.AngleUnit;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -45,13 +45,15 @@ import javafx.scene.Node;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
+
 public final class CartesianLinePane extends VBox {
 
     public LinearObjectPropertiesPane _linearObjectPropertiesPane;
     public CartesianLinePlacementPane _cartesianLinePlacementPane;
 
     /** Layer Collection reference. */
-    private ObservableList< LayerProperties >  _layerCollection;
+    private List< Layer > _layerCollection;
 
     /** Client Properties (System Type, Locale, etc.). */
     public ClientProperties                  _clientProperties;
@@ -68,7 +70,7 @@ public final class CartesianLinePane extends VBox {
         _clientProperties = pClientProperties;
 
         // Avoid chicken-or-egg null pointer problems during startup.
-        _layerCollection = LayerUtilities.makeLayerCollection();
+        _layerCollection = LayerManager.makeLayerCollection();
 
         try {
             initPane( cartesianLineCollection, 
@@ -200,7 +202,7 @@ public final class CartesianLinePane extends VBox {
         _cartesianLinePlacementPane.setGesturesEnabled( gesturesEnabled );
     }
 
-    public void setLayerCollection( final ObservableList< LayerProperties > layerCollection ) {
+    public void setLayerCollection( final ObservableList< Layer > layerCollection ) {
         // Cache a local copy of the Layer Collection.
         _layerCollection = layerCollection;
 
@@ -226,7 +228,8 @@ public final class CartesianLinePane extends VBox {
 
         // Cache the current Layer selection via Layer Name lookup.
         final String layerName = linearObjectProperties.getLayerName();
-        final LayerProperties layer = LayerUtilities.getLayerByName( _layerCollection, layerName );
+        final Layer layer = LayerManager.getLayerByName(
+                _layerCollection, layerName );
         cartesianLine.setLayer( layer );
 
         // Update the Projector values.
@@ -273,9 +276,10 @@ public final class CartesianLinePane extends VBox {
                                                    preserveSelectedLayerByName );
     }
 
-    public void updateLayerNames( final LayerProperties currentLayer ) {
-        final ObservableList< LayerProperties > layerCollection = _layerCollection;
-        final int currentLayerIndex = LayerUtilities.getLayerIndex( layerCollection, currentLayer );
+    public void updateLayerNames( final Layer currentLayer ) {
+        final List< Layer > layerCollection = _layerCollection;
+        final int currentLayerIndex = LayerManager.getLayerIndex(
+                layerCollection, currentLayer );
 
         // Forward this method to the Linear Object Properties Pane.
         _linearObjectPropertiesPane.updateLayerNames( currentLayerIndex );
@@ -290,5 +294,4 @@ public final class CartesianLinePane extends VBox {
         // Forward this method to the Cartesian Line Placement Pane.
         _cartesianLinePlacementPane.updatePreview( cartesianLineCurrent );
     }
-
 }

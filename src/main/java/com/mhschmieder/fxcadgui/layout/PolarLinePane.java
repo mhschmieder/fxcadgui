@@ -34,8 +34,8 @@ import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.PolarLine;
 import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
-import com.mhschmieder.fxlayergraphics.LayerUtilities;
-import com.mhschmieder.fxlayergraphics.model.LayerProperties;
+import com.mhschmieder.fxlayergraphics.Layer;
+import com.mhschmieder.fxlayergraphics.LayerManager;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jphysics.AngleUnit;
 import com.mhschmieder.jphysics.DistanceUnit;
@@ -45,13 +45,15 @@ import javafx.scene.Node;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
+
 public final class PolarLinePane extends VBox {
 
     public LinearObjectPropertiesPane _linearObjectPropertiesPane;
     public PolarLinePlacementPane     _polarLinePlacementPane;
 
     /** Layer Collection reference. */
-    private ObservableList< LayerProperties > _layerCollection;
+    private List< Layer > _layerCollection;
 
     /** Client Properties (System Type, Locale, etc.). */
     public ClientProperties                 _clientProperties;
@@ -68,7 +70,7 @@ public final class PolarLinePane extends VBox {
         _clientProperties = pClientProperties;
 
         // Avoid chicken-or-egg null pointer problems during startup.
-        _layerCollection = LayerUtilities.makeLayerCollection();
+        _layerCollection = LayerManager.makeLayerCollection();
 
         try {
             initPane( polarLineCollection, 
@@ -197,7 +199,7 @@ public final class PolarLinePane extends VBox {
         _polarLinePlacementPane.setGesturesEnabled( gesturesEnabled );
     }
 
-    public void setLayerCollection( final ObservableList< LayerProperties > layerCollection ) {
+    public void setLayerCollection( final List< Layer > layerCollection ) {
         // Cache a local copy of the Layer Collection.
         _layerCollection = layerCollection;
 
@@ -206,7 +208,7 @@ public final class PolarLinePane extends VBox {
     }
 
     /**
-     * Set the new Scrolling Sensitivity for all of the sliders.
+     * Set the new Scrolling Sensitivity for all the sliders.
      *
      * @param scrollingSensitivity
      *            The sensitivity of the mouse scroll wheel
@@ -223,7 +225,8 @@ public final class PolarLinePane extends VBox {
 
         // Cache the current Layer selection via Layer Name lookup.
         final String layerName = linearObjectProperties.getLayerName();
-        final LayerProperties layer = LayerUtilities.getLayerByName( _layerCollection, layerName );
+        final Layer layer = LayerManager.getLayerByName(
+                _layerCollection, layerName );
         polarLine.setLayer( layer );
 
         // Update the Projector values.
@@ -269,9 +272,10 @@ public final class PolarLinePane extends VBox {
                                                    preserveSelectedLayerByName );
     }
 
-    public void updateLayerNames( final LayerProperties currentLayer ) {
-        final ObservableList< LayerProperties > layerCollection = _layerCollection;
-        final int currentLayerIndex = LayerUtilities.getLayerIndex( layerCollection, currentLayer );
+    public void updateLayerNames( final Layer currentLayer ) {
+        final List< Layer > layerCollection = _layerCollection;
+        final int currentLayerIndex = LayerManager.getLayerIndex(
+                layerCollection, currentLayer );
 
         // Forward this method to the Linear Object Properties Pane.
         _linearObjectPropertiesPane.updateLayerNames( currentLayerIndex );
