@@ -36,12 +36,6 @@ import com.mhschmieder.fxcontrols.util.RegionUtilities;
 import com.mhschmieder.fxgraphics.paint.ColorUtilities;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jpdfreport.PdfFonts;
-import com.mhschmieder.jpdfreport.PdfTools;
-import com.pdfjet.Align;
-import com.pdfjet.PDF;
-import com.pdfjet.Page;
-import com.pdfjet.Point;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -82,30 +76,6 @@ public final class SurfacesInformationPane extends VBox {
         catch ( final Exception ex ) {
             ex.printStackTrace();
         }
-    }
-
-    public Point exportToPdf( final PDF document,
-                              final Page page,
-                              final Point initialPoint,
-                              final PdfFonts borderlessTableFonts )
-            throws Exception {
-        // Collect the information fields to render to a single-column table.
-        final String[] information = new String[ 4 ];
-        int i = 0;
-        information[ i++ ] = _surface1Label.getText();
-        information[ i++ ] = _surface2Label.getText();
-        information[ i++ ] = _surface3Label.getText();
-        information[ i++ ] = _surface4Label.getText();
-
-        // Write the Surfaces Information Table, left-aligned.
-        final Point point = PdfTools.writeInformationTable( document,
-                                                            page,
-                                                            initialPoint,
-                                                            borderlessTableFonts,
-                                                            Align.LEFT,
-                                                            information );
-
-        return point;
     }
 
     private void initPane( final ClientProperties pClientProperties ) {
@@ -199,5 +169,16 @@ public final class SurfacesInformationPane extends VBox {
         _surface2Label.setText( surface2Label );
         _surface3Label.setText( surface3Label );
         _surface4Label.setText( surface4Label );
+    }
+
+    public String[] getSurfaceInformation() {
+        // Collect the information fields to render to a single-column table.
+        final String[] information = new String[ 4 ];
+        int i = 0;
+        information[ i++ ] = _surface1Label.getText();
+        information[ i++ ] = _surface2Label.getText();
+        information[ i++ ] = _surface3Label.getText();
+        information[ i++ ] = _surface4Label.getText();
+        return information;
     }
 }
