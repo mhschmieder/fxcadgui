@@ -33,7 +33,7 @@ package com.mhschmieder.fxcadgui.stage;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.PolarLine;
 import com.mhschmieder.fxcadgui.layout.PolarLinePane;
-import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
+import com.mhschmieder.jgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxgui.stage.ObjectPropertiesEditor;
 import com.mhschmieder.fxlayergraphics.Layer;
 import com.mhschmieder.jcommons.branding.ProductBranding;

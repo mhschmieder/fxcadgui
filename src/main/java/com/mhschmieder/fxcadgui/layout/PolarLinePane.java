@@ -33,7 +33,7 @@ package com.mhschmieder.fxcadgui.layout;
 import com.mhschmieder.fxcadcontrols.model.LinearObjectProperties;
 import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgraphics.PolarLine;
-import com.mhschmieder.fxgraphics.input.ScrollingSensitivity;
+import com.mhschmieder.jgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxlayergraphics.Layer;
 import com.mhschmieder.fxlayergraphics.LayerManager;
 import com.mhschmieder.jcommons.util.ClientProperties;

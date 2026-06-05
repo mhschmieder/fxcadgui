@@ -31,7 +31,7 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcontrols.control.ControlUtilities;
-import com.mhschmieder.fxgraphics.geometry.FacingDirection;
+import com.mhschmieder.jgraphics.geometry.FacingDirection;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
