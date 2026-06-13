@@ -31,11 +31,11 @@
 package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadgraphics.PolarLine;
-import com.mhschmieder.jgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxphysicsgui.layout.CartesianPositionPane;
 import com.mhschmieder.fxphysicsgui.layout.PolarPositionPane;
 import com.mhschmieder.jcommons.util.ClientProperties;
+import com.mhschmieder.jgraphics.input.ScrollingSensitivity;
 import com.mhschmieder.jphysics.AngleUnit;
 import com.mhschmieder.jphysics.DistanceUnit;
 import javafx.geometry.Insets;
