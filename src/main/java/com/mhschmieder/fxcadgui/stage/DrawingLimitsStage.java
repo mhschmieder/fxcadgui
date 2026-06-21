@@ -38,7 +38,7 @@ import com.mhschmieder.fxcontrols.control.PredictToolBar;
 import com.mhschmieder.fxgui.stage.XStage;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jphysics.DistanceUnit;
+import com.mhschmieder.jphysics.measure.DistanceUnit;
 import javafx.scene.Node;
 import javafx.scene.control.ToolBar;
 

@@ -32,7 +32,7 @@ package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcontrols.control.ControlUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jgraphics.geometry.FacingDirection;
+import com.mhschmieder.jmath.geometry.euclidian.FacingDirection;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.RadioButton;

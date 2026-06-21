@@ -38,8 +38,8 @@ import com.mhschmieder.fxlayergraphics.Layer;
 import com.mhschmieder.jcommons.branding.ProductBranding;
 import com.mhschmieder.jcommons.util.ClientProperties;
 import com.mhschmieder.jgraphics.input.ScrollingSensitivity;
-import com.mhschmieder.jphysics.AngleUnit;
-import com.mhschmieder.jphysics.DistanceUnit;
+import com.mhschmieder.jphysics.measure.AngleUnit;
+import com.mhschmieder.jphysics.measure.DistanceUnit;
 import javafx.scene.Node;
 
 import java.util.List;

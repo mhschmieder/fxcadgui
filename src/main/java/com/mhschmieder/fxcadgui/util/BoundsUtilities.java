@@ -31,8 +31,8 @@
 package com.mhschmieder.fxcadgui.util;
 
 import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
-import com.mhschmieder.jphysics.DistanceUnit;
-import com.mhschmieder.jphysics.UnitConversion;
+import com.mhschmieder.jphysics.measure.DistanceUnit;
+import com.mhschmieder.jphysics.measure.UnitConversion;
 import javafx.geometry.BoundingBox;
 import javafx.geometry.Rectangle2D;
 
