@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadgraphics.PolarLine;
+import com.mhschmieder.fxgraphics.geometry.PolarLine;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxphysicsgui.layout.CartesianPositionPane;
 import com.mhschmieder.fxphysicsgui.layout.PolarPositionPane;

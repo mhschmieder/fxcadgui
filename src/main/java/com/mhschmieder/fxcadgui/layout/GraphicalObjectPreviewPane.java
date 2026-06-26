@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadgraphics.GraphicalObject;
+import com.mhschmieder.fxgraphics.geometry.GraphicalObject;
 import com.mhschmieder.fxgraphics.shape.ShapeGroup;
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;

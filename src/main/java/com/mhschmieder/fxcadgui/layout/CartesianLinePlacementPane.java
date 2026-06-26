@@ -30,7 +30,7 @@
  */
 package com.mhschmieder.fxcadgui.layout;
 
-import com.mhschmieder.fxcadgraphics.CartesianLine;
+import com.mhschmieder.fxgraphics.geometry.CartesianLine;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.fxphysicsgui.layout.CartesianPositionPane;
 import com.mhschmieder.fxphysicsgui.layout.PositioningPane;

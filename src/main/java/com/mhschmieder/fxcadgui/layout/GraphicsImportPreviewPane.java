@@ -32,7 +32,7 @@ package com.mhschmieder.fxcadgui.layout;
 
 import com.mhschmieder.fxcadcontrols.model.DrawingLimitsProperties;
 import com.mhschmieder.fxcadcontrols.model.Extents2DProperties;
-import com.mhschmieder.fxcadgraphics.DrawingLimits;
+import com.mhschmieder.fxgraphics.geometry.DrawingLimits;
 import com.mhschmieder.fxcadgui.util.BoundsUtilities;
 import com.mhschmieder.fxchart.control.ChartLabeledControlFactory;
 import com.mhschmieder.fxcontrols.control.LabeledControlFactory;

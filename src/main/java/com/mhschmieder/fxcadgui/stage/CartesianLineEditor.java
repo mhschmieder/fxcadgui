@@ -30,8 +30,8 @@
  */
 package com.mhschmieder.fxcadgui.stage;
 
-import com.mhschmieder.fxcadgraphics.CartesianLine;
-import com.mhschmieder.fxcadgraphics.GraphicalObjectCollection;
+import com.mhschmieder.fxgraphics.geometry.CartesianLine;
+import com.mhschmieder.fxgraphics.collections.GraphicalObjectCollection;
 import com.mhschmieder.fxcadgui.layout.CartesianLinePane;
 import com.mhschmieder.fxgui.stage.ObjectPropertiesEditor;
 import com.mhschmieder.fxgraphics.layers.Layer;
